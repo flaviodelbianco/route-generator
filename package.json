@@ -1,0 +1,25 @@
+{
+    "name": "route-generator",
+    "description": "A simple url generator for NodeJS",
+    "version": "0.1.0",
+    "author": "Flavio Del Bianco <info@flaviodelbianco.com>",
+    "keywords": [
+        "route",
+        "routes",
+        "generator",
+        "url",
+        "host",
+        "scheme"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/flaviodelbianco/route-generator"
+    },
+    "dependencies": {
+        "extend": "~1.3.0"
+    },
+    "license": "MIT",
+    "engine": {
+        "node": ">= 0.6"
+    }
+}
