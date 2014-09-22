@@ -2,7 +2,7 @@ var routerGenerator  = require("./index");
 
 var rg = new routerGenerator({
     scheme: 'https',
-    host: 'www.flaviodelbianco.com',
+    host: 'www.google.com',
     defaultAttributes: {
         "default": 1
     },
@@ -21,7 +21,7 @@ rg.setScheme('http');
 
 console.log(rg.generate('test1', { var1: '1', var2: '2' }, true));
 
-rg.setHost('bidaway.com');
+rg.setHost('google.com');
 
 console.log(rg.generate('test1', { var1: '1', var2: '2' }, true));
 
