@@ -10,11 +10,11 @@ A simple route generator for NodeJs.
 ## Usage
 
 ```javascript
-var routerGenerator  = require("./index");
+var routerGenerator  = require("route-generator");
 
 var rg = new routerGenerator({
     scheme: 'https',
-    host: 'www.flaviodelbianco.com',
+    host: 'www.google.com',
     defaultAttributes: {
         "default": 1
     },
