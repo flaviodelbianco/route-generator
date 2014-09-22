@@ -36,3 +36,5 @@ console.log(rg.generate('test4', { var1: '1', var2: '2' }, true));
 rg.setPrefix('prefix/');
 
 console.log(rg.generate('test1', { var1: '1', var2: '2' }, true));
+
+console.log(rg.generate('test1', { var1: '1', var2: '2' }));

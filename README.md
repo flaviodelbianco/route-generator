@@ -16,9 +16,10 @@ var rg = new routerGenerator({
     scheme: 'https',
     host: 'www.google.com',
     defaultAttributes: {
-        "default": 1
+        "default": "value"
     },
     routes: {
+        test: 'test'
         test1: 'test1/{var1}/{var2}'
     }
 });
@@ -56,4 +57,7 @@ rg.setPrefix('prefix/');
 
 console.log(rg.generate('test1', { var1: '1', var2: '2' }, true));
 // output: http://bidaway.com/prefix/test1/1/2?default=1
+
+console.log(rg.generate('test1', { var1: '1', var2: '2' }));
+// output: prefix/test1/1/2?default=1
 ```
