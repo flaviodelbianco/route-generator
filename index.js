@@ -108,28 +108,23 @@ module.exports = function (params) {
             if (routes[routeName]) {
                 var route = prefix+routes[routeName];
                 if (absolute) {
-                    url = this.getScheme()+'://'+this.getHost()+'/'+route;
+                    url = this.getScheme()+'://'+_rtrim(this.getHost(), '/')+'/'+_ltrim(route, '/');
                 } else {
                     url = route;
                 }
 
-                for (var k in defaultAttributes) {
-                    if (url.indexOf(k) >= 0) {
-                        url = url.replace("{"+k+"}", defaultAttributes[k]);
-                    } else {
-                        queryString.push(k+'='+defaultAttributes[k]);
-                        hasQS = true;
-                    }
+                if (typeof(attributes) != 'object') {
+                    var attributes = {};
                 }
 
-                if (typeof(attributes) == 'object') {
-                    for (var i in attributes) {
-                        if (url.indexOf(i) >= 0) {
-                            url = url.replace("{"+i+"}", attributes[i]);
-                        } else {
-                            queryString.push(i+'='+attributes[i]);
-                            hasQS = true;
-                        }
+                var attr = extend(defaultAttributes, attributes);
+
+                for (var i in attr) {
+                    if (url.indexOf(i) >= 0) {
+                        url = url.replace("{"+i+"}", attr[i]);
+                    } else {
+                        queryString.push(i+'='+attr[i]);
+                        hasQS = true;
                     }
                 }
             } else {
@@ -143,5 +138,23 @@ module.exports = function (params) {
             throw new Error("Missing the routeName argument");
         }
         return url;
+    };
+
+    // Helpers
+
+    _rtrim = function (str, chr) {
+        if (str.substring(str.length-1) == chr) {
+            str = str.substring(0, str.length-1);
+        }
+
+        return str;
+    };
+
+    _ltrim = function (str, chr) {
+        if (str.substring(0, 1) == chr) {
+            str = str.substring(1, str.length);
+        }
+
+        return str;
     };
 }
